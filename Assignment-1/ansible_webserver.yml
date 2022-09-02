@@ -1,0 +1,27 @@
+- hosts: VirtualMachines
+  become: true
+  tasks:
+    - name: Install apache2 package
+      yum: name=httpd update_cache=yes state=latest
+
+    - name: Start and enable apache2 service
+      service:
+        name: httpd
+        enabled: true
+        state: started
+
+    - name: Create a custom index.html file
+      copy:
+        src: ./msg.html
+        dest: /var/www/html/index.html
+
+    - name: update config to make apache2 listen on port 8080
+      lineinfile: dest=/etc/httpd/conf/httpd.conf regexp="^Listen 80" line="Listen 8080" state=present
+
+    - name: restart httpd server
+      service: name=httpd state=restarted
+
+    - name: Remove httpd package
+      yum:
+        name: httpd
+        state: absent
