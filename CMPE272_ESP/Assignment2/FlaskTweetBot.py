@@ -90,4 +90,4 @@ def deleteTweet():
     return render_template('delete.html',title='delete', form=form )
 
 if __name__ == '__main__':
-    app.run(port=5000, debug=True)
+    app.run(port=80, debug=True)
