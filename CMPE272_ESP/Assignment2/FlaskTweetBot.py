@@ -55,7 +55,6 @@ def createTweet():
         return redirect(url_for('home', a='Successful'))
     return render_template('create.html',title='create', form=form, text="Tweet created")
 
-# This is incomplete
 @app.route('/searchTweet', methods=['GET', 'POST'])
 def searchTweet():
     posts = []
@@ -90,4 +89,5 @@ def deleteTweet():
             return redirect(url_for('delete'))
     return render_template('delete.html',title='delete', form=form )
 
-app.run(port=5000, debug=True)
+if __name__ == '__main__':
+    app.run(port=80, debug=True)
