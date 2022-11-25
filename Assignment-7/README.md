@@ -84,7 +84,6 @@ keytool -import -alias signing-ca -keystore certs/simple_org.jks -trustcacerts -
 * Generate Certificate-Server key pair <br/>
 openssl pkcs12 -export -name "tomcat" -inkey certs/simple.org.key -in certs/simple.org.crt -out certs/simple.org.p12<br/><br/>
 In the conf file of tomcat installation directory add the SSL configuration changes in server.xml file <br/><br/>
-![image](https://user-images.githubusercontent.com/111547793/201504017-3c10f9bd-8763-4db8-8ed2-8c2b55349146.png) <br/><br/>
 ![Picture1](https://user-images.githubusercontent.com/111547793/201504068-07171715-3c21-45aa-9e47-fafa32a3e39b.png)<br/><br/>
 ![Picture2](https://user-images.githubusercontent.com/111547793/201504071-bee36780-16c2-44ed-a5a2-3847ad958196.png)<br/><br/>
 
